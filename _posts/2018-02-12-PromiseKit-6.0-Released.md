@@ -619,6 +619,16 @@ to situations of ambiguity for *you*, what should happen if you `catch` after a
 `catch`? What is the value of the chain after the `catch`? These are questions
 that could have multiple answers.
 
+If you want the previous behavior, either use `recover` or do what the previous
+`catch` did, ie. return the promise:
+
+```swift
+let p = somePromise()
+//…
+p.catch { /**/ }
+return p
+```
+
 ### No More Unhandled-Error-Handler
 
 Relunctantly this is gone. A fabulous feature, but maintaining it was quite a
